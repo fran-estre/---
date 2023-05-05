@@ -58,9 +58,13 @@ for text in listen():
         req = requests.get('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/rub.json')
         data = req.json()
         rub = data["rub"]
+        lista=[]
+        for valor in rub.values:
+             lista.append(valor)
+        a = ' '.join(map(str, lista))
         if rub:
             with open('result.txt', 'w') as f:
-                f.write(rub)
+                f.write(a)
                 speak('recorded')
         else:
             speak('nothing to record')
