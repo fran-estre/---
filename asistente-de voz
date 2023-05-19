@@ -39,28 +39,36 @@ pwd = ''
 
 for text in listen():
     if text == 'close':
+        print('close')
         speak('Goodbye')
         quit()
     elif text == 'hi':
+        print('hi')
         speak('Hi francis')
         speak('What do you need?')
+        print('Hi francis')
+        print('What do you need?')
     elif text == 'dollar':
+        print('dollar')
         req = requests.get('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/rub.json')
         data = req.json()
         rub = data["rub"]
         print(rub["usd"])
     elif text == 'euro':
+        print('euro')
         req = requests.get('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/rub.json')
         data = req.json()
         rub = data["rub"]
         print(rub["eur"])
     elif text == 'save':
+        print('save')
         req = requests.get('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/rub.json')
         data = req.json()
         rub = data["rub"]
-        lista=[]
-        for valor in rub.values:
-             lista.append(valor)
+        lista = []
+        for valor in rub.values():
+            lista.append(valor)
+            lista.append('/')
         a = ' '.join(map(str, lista))
         if rub:
             with open('result.txt', 'w') as f:
@@ -69,6 +77,7 @@ for text in listen():
         else:
             speak('nothing to record')
     elif text == 'max':
+        print('max')
         req = requests.get('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/rub.json')
         data = req.json()
         rub = data["rub"]
